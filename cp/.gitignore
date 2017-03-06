@@ -1,0 +1,6 @@
+misc/test2/
+*.exe
+.vscode/
+
+!.gitkeep
+debug
