@@ -3,27 +3,10 @@ package cp
 import (
 	"fmt"
 	"io"
-	"log"
 	"os"
 )
 
-var target_path string
-var source_path string
-
-func main() {
-
-	source_path = os.Args[1]
-	target_path = os.Args[2]
-
-	err := Dir(source_path, target_path)
-	if err != nil {
-		log.Fatal(err)
-	} else {
-		fmt.Print("copy finish")
-	}
-
-}
-
+// Dir is directory copy. force overwite.
 func Dir(source string, dest string) (err error) {
 
 	sourceinfo, err := os.Stat(source)
@@ -62,6 +45,7 @@ func Dir(source string, dest string) (err error) {
 	return
 }
 
+// File is file copy. force overwite.
 func File(source string, dest string) (err error) {
 	sourcefile, err := os.Open(source)
 	if err != nil {
